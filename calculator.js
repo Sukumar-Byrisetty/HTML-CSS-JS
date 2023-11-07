@@ -19,22 +19,11 @@ for (let key of keys) {
 			let result = eval(PerpareInput(input));
 
 			display_output.innerHTML = CleanOutput(result);
-		} else if (value == "brackets") {
-			if (
-				input.indexOf("(") == -1 || 
-				input.indexOf("(") != -1 && 
-				input.indexOf(")") != -1 && 
-				input.lastIndexOf("(") < input.lastIndexOf(")")
-			) {
-				input += "(";
-			} else if (
-				input.indexOf("(") != -1 && 
-				input.indexOf(")") == -1 || 
-				input.indexOf("(") != -1 &&
-				input.indexOf(")") != -1 &&
-				input.lastIndexOf("(") > input.lastIndexOf(")")
-			) {
-				input += ")";
+		} else if (value == "plusOrMinus") {
+			if (input > 0) {
+				input = "-"+input;
+			} else {
+				input = input.replace("-", "");;
 			}
 
 			display_input.innerHTML = CleanInput(input);
@@ -60,10 +49,6 @@ function CleanInput(input) {
 			input_array[i] = ` <span class="operator">+</span> `;
 		} else if (input_array[i] == "-") {
 			input_array[i] = ` <span class="operator">-</span> `;
-		} else if (input_array[i] == "(") {
-			input_array[i] = `<span class="brackets">(</span>`;
-		} else if (input_array[i] == ")") {
-			input_array[i] = `<span class="brackets">)</span>`;
 		} else if (input_array[i] == "%") {
 			input_array[i] = `<span class="percent">%</span>`;
 		}
