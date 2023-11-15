@@ -19,7 +19,7 @@ for (let key of keys) {
 			let result = eval(PerpareInput(input));
 
 			display_output.innerHTML = CleanOutput(result);
-		} else if (value == "plusOrMinus") {
+		} else if (value == "plusorminus") {
 			if (input > 0) {
 				input = "-"+input;
 			} else {
